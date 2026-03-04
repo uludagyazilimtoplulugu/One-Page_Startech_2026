@@ -1,11 +1,36 @@
 "use client"
 
+import { useState } from "react"
 import { FadeIn } from "@/components/fade-in"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ArrowRight, Briefcase, Rocket, Users, GraduationCap } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
+
+const ROLE_FORMS = [
+  {
+    key: "investor" as const,
+    icon: Briefcase,
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSf8UjMl05IBFYv4sW06BX-mO0U9_1sQUuDTCzQEIr4SdPdDyQ/viewform",
+  },
+  {
+    key: "startup" as const,
+    icon: Rocket,
+    url: "https://docs.google.com/forms/d/e/1FAIpQLScqZpqxruIT4HwzAKMZnpjUp79gT6cwcZZPPiYkP8KwTjQhVw/viewform",
+  },
+  {
+    key: "participant" as const,
+    icon: Users,
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSdGi5YFOL1oN_5cJi3s-Cd-brs67SdO-pzarhHBlrhIjkfWSw/viewform",
+  },
+  {
+    key: "mentor" as const,
+    icon: GraduationCap,
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSe5YyEQyvahh8-FlbO9y6KtHvwT3YiD7w_xEXD4_72RxQ5QlA/viewform",
+  },
+]
 
 export function Hero() {
   const { t } = useI18n()
+  const [showRoles, setShowRoles] = useState(false)
 
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 text-center">
@@ -41,13 +66,49 @@ export function Hero() {
       </FadeIn>
 
       <FadeIn delay={650}>
-        <a
-          href="#apply"
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all hover:scale-105 hover:opacity-90"
-        >
-          {t("reserveYourPlace")}
-          <ArrowLeft className="h-4 w-4" />
-        </a>
+        <div className="mt-10 flex flex-col items-center gap-4">
+          {!showRoles ? (
+            <button
+              onClick={() => setShowRoles(true)}
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all hover:scale-105 hover:opacity-90 cursor-pointer"
+            >
+              {t("reserveYourPlace")}
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+          ) : (
+            <div className="flex flex-col items-center gap-5">
+              <p className="text-lg font-semibold text-foreground">
+                {t("selectRole")}
+              </p>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {ROLE_FORMS.map((role) => {
+                  const Icon = role.icon
+                  return (
+                    <a
+                      key={role.key}
+                      href={role.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-card/50 px-6 py-5 text-card-foreground backdrop-blur-sm transition-all hover:scale-105 hover:border-accent hover:bg-accent/10"
+                    >
+                      <Icon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-accent" />
+                      <span className="text-sm font-semibold text-foreground">
+                        {t(role.key)}
+                      </span>
+                    </a>
+                  )
+                })}
+              </div>
+              <button
+                onClick={() => setShowRoles(false)}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
+              >
+                <ArrowRight className="h-3.5 w-3.5" />
+                {t("back")}
+              </button>
+            </div>
+          )}
+        </div>
       </FadeIn>
 
       <FadeIn delay={800}>
