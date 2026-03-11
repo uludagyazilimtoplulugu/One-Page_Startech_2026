@@ -10,7 +10,7 @@ const translations = {
     headline: "StarTech2026",
     hashtag: "#hayalimdekimeslek",
     description:
-      "Heyecan verici bir şey üzerinde çalışıyoruz. Yerinizi ayırtmak için formu şimdi doldurun.",
+      "Sektör profesyonelleri ile öğrencileri buluşturarak tecrübeyi ve geleceği paylaşıyoruz. \nYerinizi ayırtmak için formu şimdi doldurun.",
     reserveYourPlace: "Yerinizi Ayırtın",
     selectRole: "Rolünüzü Seçin",
     investor: "Yatırımcı",
@@ -44,7 +44,7 @@ const translations = {
     headline: "StarTech2026",
     hashtag: "#hayalimdekimeslek",
     description:
-      "We are currently working on something exciting. Fill out the form now to reserve your place.",
+      "We bring together industry professionals and students to share experience and shape the future. \nFill out the form now to reserve your place.",
     reserveYourPlace: "Reserve Your Place",
     selectRole: "Select Your Role",
     investor: "Investor",
