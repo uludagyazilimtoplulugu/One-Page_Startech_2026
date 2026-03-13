@@ -25,6 +25,18 @@ const FAQ_ITEMS = [
     questionKey: "faqDressCodeQuestion",
     answerKey: "faqDressCodeAnswer",
   },
+  {
+    questionKey: "faqPointSystemQuestion",
+    answerKey: "faqPointSystemAnswer",
+  },
+  {
+    questionKey: "faqExperienceRoomsQuestion",
+    answerKey: "faqExperienceRoomsAnswer",
+  },
+  {
+    questionKey: "faqSurpriseCodesQuestion",
+    answerKey: "faqSurpriseCodesAnswer",
+  },
 ] as const
 
 export function FAQ() {

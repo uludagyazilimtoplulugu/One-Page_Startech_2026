@@ -60,9 +60,10 @@ export function Hero() {
       </FadeIn>
 
       <FadeIn delay={500}>
-        <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl text-pretty">
-          {t("description")}
-        </p>
+        <div className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl text-pretty">
+          <p>{t("descriptionLine1")}</p>
+          <p className="mt-2">{t("descriptionLine2")}</p>
+        </div>
       </FadeIn>
 
       <FadeIn delay={650}>
