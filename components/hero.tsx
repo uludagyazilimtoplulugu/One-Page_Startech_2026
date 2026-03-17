@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { FadeIn } from "@/components/fade-in"
-import { ArrowLeft, ArrowRight, Briefcase, Rocket, Users, GraduationCap } from "lucide-react"
+import { ArrowLeft, ArrowRight, Briefcase, Rocket, Users, GraduationCap, Calendar, Clock, MapPin } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 
 const ROLE_FORMS = [
@@ -113,20 +113,20 @@ export function Hero() {
       </FadeIn>
 
       <FadeIn delay={800}>
-        <div className="mt-16 flex items-center gap-8 text-sm text-muted-foreground">
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-foreground">2026</span>
-            <span>{t("year")}</span>
+        <div className="mt-16 inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-card/50 px-6 py-4 backdrop-blur-sm">
+          <div className="flex items-center gap-2 whitespace-nowrap">
+            <Calendar className="h-4 w-4 shrink-0 text-accent" />
+            <span className="text-sm font-semibold text-foreground">{t("eventDate")}</span>
           </div>
-          <div className="h-8 w-px bg-border" aria-hidden="true" />
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-foreground">4</span>
-            <span>{t("tracks")}</span>
+          <div className="h-4 w-px bg-border" aria-hidden="true" />
+          <div className="flex items-center gap-2 whitespace-nowrap">
+            <Clock className="h-4 w-4 shrink-0 text-accent" />
+            <span className="text-sm font-semibold text-foreground">{t("eventTime")}</span>
           </div>
-          <div className="h-8 w-px bg-border" aria-hidden="true" />
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-foreground">1</span>
-            <span>{t("mission")}</span>
+          <div className="h-4 w-px bg-border" aria-hidden="true" />
+          <div className="flex items-center gap-2 whitespace-nowrap">
+            <MapPin className="h-4 w-4 shrink-0 text-accent" />
+            <span className="text-sm font-semibold text-foreground">{t("eventVenue")}</span>
           </div>
         </div>
       </FadeIn>
