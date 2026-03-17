@@ -1,7 +1,7 @@
 "use client"
 
 import { FadeIn } from "@/components/fade-in"
-import { MessageSquare, RefreshCw, Brain } from "lucide-react"
+import { MessageSquare, Brain } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 
 const ROOMS = [
@@ -9,11 +9,6 @@ const ROOMS = [
     icon: MessageSquare,
     titleKey: "roomInterviewTitle" as const,
     descKey: "roomInterviewDesc" as const,
-  },
-  {
-    icon: RefreshCw,
-    titleKey: "roomCareerTitle" as const,
-    descKey: "roomCareerDesc" as const,
   },
   {
     icon: Brain,
@@ -36,12 +31,12 @@ export function ExperienceRooms() {
         </p>
       </FadeIn>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
         {ROOMS.map((room, index) => {
           const Icon = room.icon
           return (
             <FadeIn key={room.titleKey} delay={200 * (index + 1)}>
-              <div className="group flex flex-col rounded-2xl border border-border bg-card/50 p-8 backdrop-blur-sm transition-all hover:scale-[1.03] hover:border-accent hover:bg-accent/5">
+              <div className="group flex h-full flex-col rounded-2xl border border-border bg-card/50 p-8 backdrop-blur-sm transition-all hover:scale-[1.03] hover:border-accent hover:bg-accent/5">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 transition-colors group-hover:bg-accent/20">
                   <Icon className="h-6 w-6 text-accent" />
                 </div>
